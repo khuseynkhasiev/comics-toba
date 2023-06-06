@@ -1,0 +1,257 @@
+@font-face {
+    font-family: "Anime";
+    src: url('/fonts/anime-ace.ttf');
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Anime", sans-serif;
+    appearance: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.wrapper {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+body {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+
+.dialog {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 40px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 15px;
+    max-width: 500px;
+    line-height: 1.4;
+    transition: all .4s;
+    z-index: 2;
+}
+
+.comics[data-scene="1"] .dialog-one {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.comics[data-scene="1"] .dialog-two {
+    top: 100px;
+    left: 70%;
+    transform: translateX(-50%);
+}
+
+.comics[data-scene="2"] .dialog-three {
+    top: 150px;
+    left: 40%;
+    transform: translateX(-50%);
+    
+}
+
+.comics[data-scene="3"] .dialog-foor {
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.comics {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 3s;
+}
+
+.comics img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 2s;
+}
+
+.comics.hide {
+    z-index: -1;
+    opacity: 0;
+}
+
+
+.comics .img-1 {
+    animation: lazyScale 40s ease-in infinite;
+    width: 100%;
+    top: 0px;
+    transition: all 3s;
+}
+.comics .img-3 {
+    height: auto;
+    object-position: top;
+}
+.comics .img-3-1 {
+    opacity: 0;
+}
+.comics .people-m {
+    top: 180px;
+    transition: all .3s;
+    animation: people-m 5s ease-in infinite;
+}
+.comics .down {
+    animation: scrollDown 3s normal forwards ease-in-out;
+    animation-iteration-count: 1;
+}
+.comics .obl {
+    animation: oblLeft 5s ease-in infinite;
+    transition: all 3s;
+}
+
+.comics img.orel {
+    left: 100%;
+    width: auto;
+    height: auto;
+    transition: all 3s;
+    top: 100%;
+    transform: rotate(330deg);
+}
+.comics img.orel.show {
+    top: 0%;
+    left: 0;
+    animation: orel 10s ease;
+    animation-iteration-count: 1;
+}
+
+
+.comics .obl.show {
+    animation: oblShow 3s ease-in;
+    animation-iteration-count: 1;
+}
+
+.comics .obl.show.hide {
+    display: none;
+}
+
+.img-3-1.show {
+    animation: people 3.5s ease;
+}
+.comics[data-scene="3"] img {
+    width: 100%;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    max-height: 665px;
+}
+
+@keyframes people {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(12);
+    }
+}
+
+@keyframes people-m {
+    0% {
+        left: 0px;
+    }
+    50% {
+        left: 2px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes lazyScale {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    0% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        top: 0%;
+    }
+    100% {
+        top: 100%;
+        display: none;
+    }
+
+}
+
+@keyframes oblLeft {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    0% {
+        transform: scale(1);
+    }
+}
+
+@keyframes orel {
+    0% {
+        transform: translateX(0px) translateY(0px) rotate(330deg);
+        transition: all .3s;
+    }
+    100% {
+        transform: translateX(-200px) translateY(-100px) rotate(330deg);
+        transition: all .3s;
+    }
+}
+
+
+
+@keyframes oblShow {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
